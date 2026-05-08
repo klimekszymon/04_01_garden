@@ -3,12 +3,18 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "workspaces": [
+    "apps/*"
+  ],
   "scripts": {
     "test": "vitest run",
     "test:watch": "vitest",
     "dev": "mastra dev",
+    "dev:backend": "cd apps/backend && bun run dev",
+    "dev:frontend": "cd apps/frontend && npm run dev",
     "build": "mastra build",
-    "start": "mastra start"
+    "start": "mastra start",
+    "typecheck": "tsc --noEmit && cd apps/backend && tsc --noEmit && cd ../frontend && vue-tsc --noEmit"
   },
   "keywords": [],
   "author": "",
